@@ -123,34 +123,39 @@ describe Board do
     end
   end
 
+  describe '#game_logic for cell at 5' do
+    it 'will transform cells state depending on live and dead count' do
+    board = Board.new(15)
+    cells = board.cells
+    cells[5].kill
+    cells[0].kill
+    cells[1].kill
+    cells[6].kill
+    cells[10].kill
+    cells[11].kill
+    board.game_logic(cells)
+    expect(cells[5].alive?).to eq true
+    end
+  end
+
   # describe '#game_logic for cell at 6' do
   #   it 'will transform cells state depending on live and dead count' do
   #   board = Board.new(25)
   #   cells = board.cells
-  #   cells[0].make_alive
+  #   cells[6].make_alive
+  #   cells[0].kill
   #   cells[1].kill
-  #   cells[2].make_alive
-  #   cells[5].make_alive
-  #   cells[6].kill
+  #   cells[2].kill
+  #   cells[5].kill
+  #   cells[7].kill
+  #   cells[10].kill
+  #   cells[11].kill
+  #   cells[12].kill
   #   board.game_logic(cells)
-  #   expect(cells[1].alive?).to eq true
+  #   expect(cells[6].alive?).to eq false
   #   end
   # end
-  #
-  # describe '#game_logic for cell at 7' do
-  #   it 'will transform cells state depending on live and dead count' do
-  #   board = Board.new(25)
-  #   cells = board.cells
-  #   cells[0].make_alive
-  #   cells[1].kill
-  #   cells[2].make_alive
-  #   cells[5].make_alive
-  #   cells[6].kill
-  #   board.game_logic(cells)
-  #   expect(cells[1].alive?).to eq true
-  #   end
-  # end
-  #
+
   # describe '#game_logic for cell at 8' do
   #   it 'will transform cells state depending on live and dead count' do
   #   board = Board.new(25)
